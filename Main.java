@@ -4,12 +4,7 @@ import java.util.Scanner;
 
 class main  {
 
-    public static void main(String[] args) {
-
-        MenuChest();
-    }
-
-    public static int ErrorCheck(){
+    public static int VerifCheck(){
         Scanner sc = new Scanner(System.in);
         int choix;
         try {
@@ -54,10 +49,8 @@ class main  {
         //Scanner sc = new Scanner(System.in);
         int choix; // Variable de type entier qui prend en compte le premier choix de l'utilisateur
         int choix2;// Variable de type entier qui prend en compte le deuxième choix de l'utilisateur
-        //choix = sc.nextInt();
-        //ErrorCheck(choix);
 
-        choix = ErrorCheck();
+        choix = VerifCheck();
         System.out.println();
 
 
@@ -73,7 +66,7 @@ class main  {
                 do{
                     System.out.println("Nous sommes dans la partie jeu,choisir 0 pour retourner au menu principal. ");
                     Start();
-                    choix2 = ErrorCheck();
+                    choix2 = VerifCheck();
                 }
                 while (choix2!=0);
                 System.out.println("Nous sortons du jeu, Retour au menu");
@@ -90,7 +83,7 @@ class main  {
                 do{
                     System.out.println("Nous sommes dans l'affichage du score,choisir 0 pour retourner au menu principal. ");
                     Scores();
-                    choix2 = ErrorCheck();
+                    choix2 = VerifCheck();
                 }
                 while (choix2!=0);
                 System.out.println("Nous sortons l'affichage du score, Retour au menu");
@@ -106,10 +99,10 @@ class main  {
                 do{
                     System.out.println("Nous sommes dans l'affichage des règles,choisir 0 pour retourner au menu principal. ");
                     Rules();
-                    choix2 = ErrorCheck();
+                    choix2 = VerifCheck();
                 }
                 while (choix2!=0);
-                System.out.println("Nous sortons ll'affichage des règles, Retour au menu");
+                System.out.println("Nous sortons l'affichage des règles, Retour au menu");
                 MenuChest();
                 break;
 
@@ -127,6 +120,11 @@ class main  {
         }
     }
 
+
+    public static void main(String[] args) {
+
+        MenuChest();
+    }
 
 
 

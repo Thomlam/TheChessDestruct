@@ -3,13 +3,17 @@ package com.company;
 import java.util.Scanner;
 
 class beba  {
-
-    public static void main(String[] args) {
-
+   // Procédure de Retour en fonction d'une variable d'entrée choix
+    public static void ReturnOrNot (int choix2) {
+        while (choix2 != 0) {
+            System.out.println("Choisir 0 pour retourner au menu principal. ");
+            choix2 = VerifCheck();
+        }
+        System.out.println("Nous sommes rédiriger vers le menu");
         MenuChest();
     }
-
-    public static int ErrorCheck(){
+// Fonction sans paramètres qui retourne un entier pour vérifier le choix de l'utilisateur
+    public static int VerifCheck(){
         Scanner sc = new Scanner(System.in);
         int choix;
         try {
@@ -21,21 +25,22 @@ class beba  {
 
         return choix;
     }
+    // PROCÉDURE QUI AFFICHE LES RÈGLES
     public static void Rules() { //Fonction pour les règles
 
 
     }
-
+// PROCÉDURE QUI AFFICHE LES 10 DERNIERS SCORES
     public static void Scores() { //Fonction pour les scores
 
 
     }
-
+// PRODCÉDURE QUI LANCE LE JEU
     public static void Start() { //Fonction pour le jeu
 
 
     }
-
+// PROCÉDURE QUI AFFICHE LE MENU
     public static void MenuChest() {
         System.out.println("Bienvenue dans le Destruct Chess 2.0");
         System.out.println();
@@ -54,82 +59,65 @@ class beba  {
         //Scanner sc = new Scanner(System.in);
         int choix; // Variable de type entier qui prend en compte le premier choix de l'utilisateur
         int choix2;// Variable de type entier qui prend en compte le deuxième choix de l'utilisateur
-        //choix = sc.nextInt();
-        //ErrorCheck(choix);
 
-        choix = ErrorCheck();
+        choix = VerifCheck();
         System.out.println();
 
 
         switch (choix) {
-            //Choix numéro 1
+
+            //Choix numéro 1 POUR ACCÉDER AU JEU
+
             case 1:
                 System.out.println("Démarrer le jeu");
                 Start();
-
-                // Déterminer si on continue dans le jeu ou l'on retourne au menu
-
-
-                do{
-                    System.out.println("Nous sommes dans la partie jeu,choisir 0 pour retourner au menu principal. ");
-                    Start();
-                    choix2 = ErrorCheck();
-                }
-                while (choix2!=0);
-                System.out.println("Nous sortons du jeu, Retour au menu");
-                MenuChest();
+                // DETERMINER SI L'UTILISATEUR SOUHAITE RETOURNER AU MENU PRINCIPAL//
+                System.out.println("Nous sommes dans la partie jeu,choisir 0 pour retourner au menu principal. ");
+                choix2 = VerifCheck();
+                ReturnOrNot(choix2);
                 break;
 
 
-            //Choix numéro 2
+            //Choix numéro 2 POUR ACCÉDER AU 10 DERNIERS SCORES //
             case 2:
                 System.out.println("Scores");
                 Scores();
 
-                // Déterminer si on continue dans l'affichage du score ou l'on retourne au menu
-                do{
-                    System.out.println("Nous sommes dans l'affichage du score,choisir 0 pour retourner au menu principal. ");
-                    Scores();
-                    choix2 = ErrorCheck();
-                }
-                while (choix2!=0);
-                System.out.println("Nous sortons l'affichage du score, Retour au menu");
-                MenuChest();
+                // DETERMINER SI L'UTILISATEUR SOUHAITE RETOURNER AU MENU PRINCIPAL//
+                System.out.println("Nous sommes dans l'affichage des Scores ,choisir 0 pour retourner au menu principal. ");
+                choix2 = VerifCheck();
+                ReturnOrNot(choix2);
                 break;
 
 
-            //Choix numéro 3
+            //Choix numéro 3 POUR ACCÉDER AU RÈGLES DU JEU//
             case 3:
                 System.out.println("Règles du jeu");
                 Rules();
-
-                do{
-                    System.out.println("Nous sommes dans l'affichage des règles,choisir 0 pour retourner au menu principal. ");
-                    Rules();
-                    choix2 = ErrorCheck();
-                }
-                while (choix2!=0);
-                System.out.println("Nous sortons ll'affichage des règles, Retour au menu");
-                MenuChest();
+                // DETERMINER SI L'UTILISATEUR SOUHAITE RETOURNER AU MENU PRINCIPAL//
+                System.out.println("Nous sommes dans l'affichage des règles ,choisir 0 pour retourner au menu principal. ");
+                choix2 = VerifCheck();
+                ReturnOrNot(choix2);
                 break;
 
 
-            //Choix numéro 4//
+            //Choix numéro 4 SORTIR DU JEU //
             case 4:
-                System.out.println("Quitter");
+                System.out.println("Vous avez décidez de quitter le jeu.");
                 break;
 
             // Choix par défault si le choix est diffèrent des choix proposés auparavant//
             default:
-                System.out.println("Attention choix incorrect!!! Veuillez resaissir une valeur correcte");
+                System.out.println("Attention choix incorrect!!! Veuillez résaissir une valeur correcte");
                 MenuChest();
                 break;
         }
     }
 
 
+    public static void main(String[] args) {
 
-
-
+        MenuChest();
+    }
 
 }
