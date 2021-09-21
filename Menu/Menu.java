@@ -1,8 +1,16 @@
-package com.company;
-
+package Menu;
 import java.util.Scanner;
 
-class main  {
+public class Menu {
+
+    public static void ReturnOrNot (int choix2){
+        while (choix2 !=0) {
+            System.out.println("Choisir 0 pour retourner au menu principal");
+            choix2 =VerifCheck();
+        }
+            System.out.println("Retour au menu principal");
+            MenuChest();
+        }
 
     public static int VerifCheck(){
         Scanner sc = new Scanner(System.in);
@@ -16,17 +24,17 @@ class main  {
 
         return choix;
     }
-    public static void Rules() { //Fonction pour les règles
+    public static void rules() { //Fonction pour les règles
 
 
     }
 
-    public static void Scores() { //Fonction pour les scores
+    public static void scores() { //Fonction pour les scores
 
 
     }
 
-    public static void Start() { //Fonction pour le jeu
+    public static void start() { //Fonction pour le jeu
 
 
     }
@@ -46,70 +54,54 @@ class main  {
         System.out.println();
         System.out.println("4:Quitter le jeu");
 
-        //Scanner sc = new Scanner(System.in);
+
         int choix; // Variable de type entier qui prend en compte le premier choix de l'utilisateur
         int choix2;// Variable de type entier qui prend en compte le deuxième choix de l'utilisateur
 
         choix = VerifCheck();
-        System.out.println();
 
 
         switch (choix) {
             //Choix numéro 1
             case 1:
                 System.out.println("Démarrer le jeu");
-                Start();
+                start();
 
                 // Déterminer si on continue dans le jeu ou l'on retourne au menu
+                System.out.println("Choisir 0 pour retourner au menu principal.");
+                choix2 = VerifCheck();
+                ReturnOrNot(choix2);
+                System.out.println("Nous quittons le jeu ");
 
-
-                do{
-                    System.out.println("Nous sommes dans la partie jeu,choisir 0 pour retourner au menu principal. ");
-                    Start();
-                    choix2 = VerifCheck();
-                }
-                while (choix2!=0);
-                System.out.println("Nous sortons du jeu, Retour au menu");
-                MenuChest();
                 break;
 
 
             //Choix numéro 2
             case 2:
                 System.out.println("Scores");
-                Scores();
+                scores();
 
                 // Déterminer si on continue dans l'affichage du score ou l'on retourne au menu
-                do{
-                    System.out.println("Nous sommes dans l'affichage du score,choisir 0 pour retourner au menu principal. ");
-                    Scores();
-                    choix2 = VerifCheck();
-                }
-                while (choix2!=0);
-                System.out.println("Nous sortons l'affichage du score, Retour au menu");
-                MenuChest();
+                choix2 = VerifCheck();
+                ReturnOrNot(choix2);
+                System.out.println("Nous quittons les scores");
                 break;
 
 
             //Choix numéro 3
             case 3:
                 System.out.println("Règles du jeu");
-                Rules();
+                rules();
 
-                do{
-                    System.out.println("Nous sommes dans l'affichage des règles,choisir 0 pour retourner au menu principal. ");
-                    Rules();
-                    choix2 = VerifCheck();
-                }
-                while (choix2!=0);
-                System.out.println("Nous sortons l'affichage des règles, Retour au menu");
-                MenuChest();
+                choix2 = VerifCheck();
+                ReturnOrNot(choix2);
+                System.out.println("Nous quittons les règles .");
                 break;
 
 
             //Choix numéro 4//
             case 4:
-                System.out.println("Quitter");
+                System.out.println("Au revoir.");
                 break;
 
             // Choix par défault si le choix est diffèrent des choix proposés auparavant//
